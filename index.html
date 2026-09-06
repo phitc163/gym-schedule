@@ -1,0 +1,1035 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Lịch Tập Gym | Upper/Lower Split · Người Mới</title>
+  <meta name="description" content="Đánh giá lịch tập gym Upper/Lower Split cho người mới 1 tháng tự tập, kèm video hướng dẫn từng bài tập." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg-dark: #0a0c14;
+      --bg-card: #111420;
+      --bg-card2: #161a28;
+      --accent-blue: #4f8ef7;
+      --accent-green: #2ecc71;
+      --accent-yellow: #f5c542;
+      --accent-red: #e74c3c;
+      --accent-purple: #9b59b6;
+      --text-primary: #eef2ff;
+      --text-secondary: #8892b0;
+      --text-muted: #4a5568;
+      --border: rgba(255,255,255,0.07);
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--bg-dark);
+      color: var(--text-primary);
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    /* ===== HERO ===== */
+    .hero {
+      position: relative;
+      padding: 80px 20px 60px;
+      text-align: center;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -200px; left: 50%;
+      transform: translateX(-50%);
+      width: 800px; height: 500px;
+      background: radial-gradient(ellipse, rgba(79,142,247,0.15) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(79,142,247,0.12);
+      border: 1px solid rgba(79,142,247,0.3);
+      border-radius: 100px;
+      padding: 6px 16px;
+      font-size: 13px;
+      color: var(--accent-blue);
+      margin-bottom: 24px;
+      letter-spacing: 0.5px;
+    }
+    .hero h1 {
+      font-size: clamp(2rem, 5vw, 3.5rem);
+      font-weight: 900;
+      line-height: 1.15;
+      background: linear-gradient(135deg, #eef2ff 0%, #a5b4fc 50%, #818cf8 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 16px;
+    }
+    .hero p {
+      font-size: 1.05rem;
+      color: var(--text-secondary);
+      max-width: 580px;
+      margin: 0 auto 40px;
+      line-height: 1.7;
+    }
+
+    /* ===== VERDICT ===== */
+    .verdict-section {
+      max-width: 900px;
+      margin: 0 auto 60px;
+      padding: 0 20px;
+    }
+    .verdict-card {
+      background: linear-gradient(135deg, #1a2340 0%, #161a28 100%);
+      border: 1px solid rgba(79,142,247,0.3);
+      border-radius: 24px;
+      padding: 36px;
+      position: relative;
+      overflow: hidden;
+    }
+    .verdict-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, var(--accent-blue), var(--accent-purple), var(--accent-green));
+    }
+    .verdict-title {
+      font-size: 1.4rem;
+      font-weight: 800;
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .score-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 14px;
+      margin: 24px 0;
+    }
+    .score-item {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 18px;
+      text-align: center;
+    }
+    .score-num {
+      font-size: 2rem;
+      font-weight: 900;
+      line-height: 1;
+      margin-bottom: 6px;
+    }
+    .score-label { font-size: 11px; color: var(--text-secondary); text-transform: uppercase; letter-spacing: 0.8px; }
+    .score-green { color: var(--accent-green); }
+    .score-yellow { color: var(--accent-yellow); }
+    .score-blue { color: var(--accent-blue); }
+    .verdict-text { color: var(--text-secondary); line-height: 1.8; font-size: 0.95rem; }
+    .verdict-text strong { color: var(--text-primary); }
+    .tips-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 14px;
+      margin-top: 26px;
+    }
+    .tip-card {
+      background: rgba(255,255,255,0.03);
+      border-radius: 14px;
+      padding: 16px;
+      border-left: 3px solid;
+      display: flex;
+      gap: 10px;
+      align-items: flex-start;
+    }
+    .tip-card.green { border-color: var(--accent-green); }
+    .tip-card.yellow { border-color: var(--accent-yellow); }
+    .tip-card.red { border-color: var(--accent-red); }
+    .tip-card.blue { border-color: var(--accent-blue); }
+    .tip-icon { font-size: 1.3rem; flex-shrink: 0; }
+    .tip-content h4 { font-size: 0.82rem; font-weight: 700; margin-bottom: 4px; }
+    .tip-content p { font-size: 0.78rem; color: var(--text-secondary); line-height: 1.6; }
+
+    /* ===== SCHEDULE ===== */
+    .schedule-section {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 20px 80px;
+    }
+    .section-header { text-align: center; margin-bottom: 48px; }
+    .section-tag {
+      display: inline-block;
+      background: rgba(46,204,113,0.1);
+      border: 1px solid rgba(46,204,113,0.25);
+      color: var(--accent-green);
+      font-size: 12px; font-weight: 700;
+      text-transform: uppercase; letter-spacing: 1.5px;
+      padding: 5px 14px; border-radius: 100px; margin-bottom: 14px;
+    }
+    .section-header h2 { font-size: clamp(1.6rem, 3vw, 2.4rem); font-weight: 800; margin-bottom: 10px; }
+    .section-header p { color: var(--text-secondary); font-size: 0.95rem; }
+
+    /* ===== TABS ===== */
+    .tabs {
+      display: flex; gap: 8px;
+      justify-content: center; flex-wrap: wrap; margin-bottom: 40px;
+    }
+    .tab-btn {
+      padding: 10px 24px;
+      border-radius: 100px;
+      border: 1px solid var(--border);
+      background: transparent;
+      color: var(--text-secondary);
+      font-family: 'Inter', sans-serif;
+      font-size: 14px; font-weight: 600;
+      cursor: pointer;
+      transition: all 0.25s ease;
+    }
+    .tab-btn:hover { border-color: rgba(79,142,247,0.4); color: var(--accent-blue); }
+    .tab-btn.active-blue {
+      background: var(--accent-blue); border-color: var(--accent-blue);
+      color: #fff; box-shadow: 0 0 20px rgba(79,142,247,0.3);
+    }
+    .tab-btn.active-green {
+      background: var(--accent-green); border-color: var(--accent-green);
+      color: #fff; box-shadow: 0 0 20px rgba(46,204,113,0.3);
+    }
+
+    .tab-content { display: none; }
+    .tab-content.active { display: block; animation: fadeIn 0.3s ease; }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ===== LEGEND ===== */
+    .legend {
+      display: flex; gap: 16px; justify-content: center;
+      flex-wrap: wrap; margin-bottom: 32px;
+    }
+    .legend-item { display: flex; align-items: center; gap: 6px; font-size: 13px; color: var(--text-secondary); }
+    .legend-dot { width: 10px; height: 10px; border-radius: 50%; }
+    .dot-easy { background: var(--accent-green); }
+    .dot-medium { background: var(--accent-yellow); }
+
+    /* ===== EXERCISE CARDS ===== */
+    .exercise-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 20px;
+    }
+    .exercise-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      overflow: hidden;
+      transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+    }
+    .exercise-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 20px 50px rgba(0,0,0,0.4);
+      border-color: rgba(79,142,247,0.3);
+    }
+
+    /* Video area */
+    .video-wrapper {
+      position: relative;
+      width: 100%;
+      padding-top: 56.25%;
+      background: #0d101c;
+    }
+    .video-wrapper iframe {
+      position: absolute; top: 0; left: 0;
+      width: 100%; height: 100%; border: none;
+    }
+    .video-thumb {
+      position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      cursor: pointer;
+      transition: opacity 0.25s;
+      overflow: hidden;
+      background: #0d101c;
+    }
+    .video-thumb img {
+      position: absolute; top: 0; left: 0;
+      width: 100%; height: 100%;
+      object-fit: cover; opacity: 0.55;
+      transition: opacity 0.25s;
+    }
+    .video-thumb:hover img { opacity: 0.7; }
+    .play-btn {
+      position: relative; z-index: 2;
+      width: 62px; height: 62px;
+      background: rgba(255,0,0,0.88);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      box-shadow: 0 0 30px rgba(255,0,0,0.5);
+      transition: transform 0.2s, background 0.2s;
+    }
+    .video-thumb:hover .play-btn { transform: scale(1.1); background: #ff0000; }
+    .play-btn svg { width: 26px; height: 26px; fill: white; margin-left: 4px; }
+    .video-label {
+      position: relative; z-index: 2;
+      margin-top: 10px; font-size: 11px;
+      color: rgba(255,255,255,0.75); font-weight: 500;
+    }
+    .yt-link {
+      position: absolute; bottom: 8px; right: 8px; z-index: 2;
+      background: rgba(0,0,0,0.6);
+      color: rgba(255,255,255,0.7);
+      font-size: 10px; padding: 3px 8px;
+      border-radius: 4px; text-decoration: none;
+      transition: background 0.2s;
+    }
+    .yt-link:hover { background: rgba(255,0,0,0.8); color: #fff; }
+
+    .card-body { padding: 18px 20px 20px; }
+    .exercise-name {
+      font-size: 0.95rem; font-weight: 700;
+      margin-bottom: 8px;
+      display: flex; align-items: center; gap: 8px; flex-wrap: wrap;
+    }
+    .sets-badge {
+      display: inline-block;
+      background: rgba(79,142,247,0.12);
+      border: 1px solid rgba(79,142,247,0.2);
+      color: var(--accent-blue);
+      font-size: 11px; font-weight: 700;
+      padding: 2px 10px; border-radius: 100px;
+    }
+    .sets-badge.green {
+      background: rgba(46,204,113,0.1);
+      border-color: rgba(46,204,113,0.2);
+      color: var(--accent-green);
+    }
+    .exercise-meta {
+      display: flex; gap: 6px; flex-wrap: wrap; margin: 8px 0;
+    }
+    .meta-tag {
+      font-size: 11px; padding: 2px 9px;
+      border-radius: 100px; font-weight: 600;
+    }
+    .tag-easy { background: rgba(46,204,113,0.15); color: #2ecc71; }
+    .tag-medium { background: rgba(245,197,66,0.15); color: #f5c542; }
+    .tag-muscle { background: rgba(155,89,182,0.15); color: #c39bd3; }
+    .tag-machine { background: rgba(79,142,247,0.12); color: #7ab3fa; }
+    .tag-dumbbell { background: rgba(255,165,0,0.12); color: #ffa500; }
+    .tag-cable { background: rgba(0,188,212,0.12); color: #00bcd4; }
+    .tag-bodyweight { background: rgba(255,87,34,0.12); color: #ff7043; }
+    .exercise-note {
+      font-size: 0.8rem; color: var(--text-secondary);
+      line-height: 1.6;
+      border-top: 1px solid var(--border);
+      padding-top: 10px; margin-top: 10px;
+    }
+
+    /* ===== FOOTER ===== */
+    footer {
+      text-align: center; padding: 40px 20px;
+      border-top: 1px solid var(--border);
+      color: var(--text-muted); font-size: 13px;
+    }
+
+    @media (max-width: 600px) {
+      .exercise-grid { grid-template-columns: 1fr; }
+      .verdict-card { padding: 20px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-badge">🏋️ Đánh Giá Lịch Tập · Người Mới 1 Tháng</div>
+  <h1>Lịch Tập Của Bạn<br/>Có Phù Hợp Không?</h1>
+  <p>Phân tích chi tiết từng bài tập trong lịch <strong>Upper/Lower Split</strong>, đánh giá độ phù hợp cho người tự tập, kèm video hướng dẫn chuẩn kỹ thuật.</p>
+</section>
+
+<!-- VERDICT -->
+<section class="verdict-section">
+  <div class="verdict-card">
+    <div class="verdict-title">🎯 Nhận Xét Tổng Quan</div>
+    <div class="score-grid">
+      <div class="score-item">
+        <div class="score-num score-green">9/10</div>
+        <div class="score-label">Phù hợp người mới</div>
+      </div>
+      <div class="score-item">
+        <div class="score-num score-blue">27</div>
+        <div class="score-label">Tổng bài tập</div>
+      </div>
+      <div class="score-item">
+        <div class="score-num score-yellow">4</div>
+        <div class="score-label">Buổi tập / tuần</div>
+      </div>
+      <div class="score-item">
+        <div class="score-num score-green">~85%</div>
+        <div class="score-label">Bài dễ thực hiện</div>
+      </div>
+    </div>
+    <p class="verdict-text">
+      ✅ <strong>Lịch tập của bạn rất phù hợp!</strong> Đây là split <strong>Upper/Lower 4 ngày</strong> — một trong những lịch tập được khuyến nghị nhất cho người mới bắt đầu. Hầu hết các bài đều dùng <strong>máy hoặc dây cáp/tạ đơn</strong>, giảm thiểu yêu cầu kỹ thuật và an toàn hơn so với barbell. Bạn hoàn toàn có thể tập theo lịch này một cách hiệu quả và an toàn.
+    </p>
+    <div class="tips-grid">
+      <div class="tip-card green">
+        <span class="tip-icon">✅</span>
+        <div class="tip-content">
+          <h4>Điểm mạnh</h4>
+          <p>Phần lớn bài tập dùng máy — an toàn, dễ căn chỉnh tư thế, phù hợp hoàn toàn cho người tự tập.</p>
+        </div>
+      </div>
+      <div class="tip-card yellow">
+        <span class="tip-icon">⚠️</span>
+        <div class="tip-content">
+          <h4>Lưu ý nhỏ</h4>
+          <p>Romanian Deadlift với dumbbell cần chú ý giữ lưng thẳng. Bắt đầu với tạ nhẹ và xem kỹ video.</p>
+        </div>
+      </div>
+      <div class="tip-card blue">
+        <span class="tip-icon">💡</span>
+        <div class="tip-content">
+          <h4>Gợi ý lịch tập</h4>
+          <p>Upper A → Lower A → Nghỉ → Upper B → Lower B → Nghỉ → Nghỉ. Tránh 2 buổi liền cùng nhóm cơ.</p>
+        </div>
+      </div>
+      <div class="tip-card red">
+        <span class="tip-icon">🔑</span>
+        <div class="tip-content">
+          <h4>Ưu tiên hàng đầu</h4>
+          <p>Khởi động 5–10 phút trước mỗi buổi và giãn cơ sau tập. Đặc biệt quan trọng cho Lower body.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SCHEDULE -->
+<section class="schedule-section">
+  <div class="section-header">
+    <div class="section-tag">Chi tiết từng bài</div>
+    <h2>Lịch Tập &amp; Video Hướng Dẫn</h2>
+    <p>Chọn buổi tập để xem hướng dẫn chi tiết từng bài · Nhấn thumbnail để xem video</p>
+  </div>
+
+  <div class="legend">
+    <div class="legend-item"><div class="legend-dot dot-easy"></div>Dễ — phù hợp hoàn toàn</div>
+    <div class="legend-item"><div class="legend-dot dot-medium"></div>Trung bình — chú ý tư thế</div>
+  </div>
+
+  <div class="tabs">
+    <button class="tab-btn active-blue" onclick="switchTab('upper-a','blue')" id="tab-upper-a">🟦 Upper A</button>
+    <button class="tab-btn" onclick="switchTab('lower-a','green')" id="tab-lower-a">🟩 Lower A</button>
+    <button class="tab-btn" onclick="switchTab('upper-b','blue')" id="tab-upper-b">🟦 Upper B</button>
+    <button class="tab-btn" onclick="switchTab('lower-b','green')" id="tab-lower-b">🟩 Lower B</button>
+  </div>
+
+  <!-- ======= UPPER A ======= -->
+  <div class="tab-content active" id="upper-a">
+    <div class="exercise-grid">
+
+      <div class="exercise-card">
+        <div class="video-wrapper" id="w1">
+          <div class="video-thumb" onclick="loadVid('w1','eGo4IYlbE5g')">
+            <img src="https://img.youtube.com/vi/eGo4IYlbE5g/hqdefault.jpg" alt="Machine Chest Press" loading="lazy"/>
+            <div class="play-btn"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+            <span class="video-label">Nhấn để xem video</span>
+            <a class="yt-link" href="https://youtu.be/eGo4IYlbE5g" target="_blank" rel="noopener" onclick="event.stopPropagation()">YouTube ↗</a>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="exercise-name">Machine Chest Press <span class="sets-badge">3 × 8–12</span></div>
+          <div class="exercise-meta">
+            <span class="meta-tag tag-easy">🟢 Dễ</span>
+            <span class="meta-tag tag-machine">🖥️ Máy</span>
+            <span class="meta-tag tag-muscle">Ngực · Vai trước · Tricep</span>
+          </div>
+          <div class="exercise-note">💡 Bài tốt nhất cho người mới. Máy cố định đường di chuyển, rất an toàn. Đẩy hết tầm, hạ chậm 2–3 giây để tối đa kích thích cơ.</div>
+        </div>
+      </div>
+
+      <div class="exercise-card">
+        <div class="video-wrapper" id="w2">
+          <div class="video-thumb" onclick="loadVid('w2','CAwf7n6Luuc')">
+            <img src="https://img.youtube.com/vi/CAwf7n6Luuc/hqdefault.jpg" alt="Lat Pulldown" loading="lazy"/>
+            <div class="play-btn"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+            <span class="video-label">Nhấn để xem video</span>
+            <a class="yt-link" href="https://youtu.be/CAwf7n6Luuc" target="_blank" rel="noopener" onclick="event.stopPropagation()">YouTube ↗</a>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="exercise-name">Lat Pulldown <span class="sets-badge">3 × 8–12</span></div>
+          <div class="exercise-meta">
+            <span class="meta-tag tag-easy">🟢 Dễ</span>
+            <span class="meta-tag tag-cable">🔗 Cáp</span>
+            <span class="meta-tag tag-muscle">Lưng rộng · Bicep</span>
+          </div>
+          <div class="exercise-note">💡 Kéo về phía ngực (không kéo ra sau cổ). Ngực ưỡn về phía thanh kéo, khuỷu tay hướng thẳng xuống sàn.</div>
+        </div>
+      </div>
+
+      <div class="exercise-card">
+        <div class="video-wrapper" id="w3">
+          <div class="video-thumb" onclick="loadVid('w3','UCXuq83diA0')">
+            <img src="https://img.youtube.com/vi/UCXuq83diA0/hqdefault.jpg" alt="Seated Cable Row" loading="lazy"/>
+            <div class="play-btn"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+            <span class="video-label">Nhấn để xem video</span>
+            <a class="yt-link" href="https://youtu.be/UCXuq83diA0" target="_blank" rel="noopener" onclick="event.stopPropagation()">YouTube ↗</a>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="exercise-name">Seated Cable Row <span class="sets-badge">3 × 8–12</span></div>
+          <div class="exercise-meta">
+            <span class="meta-tag tag-easy">🟢 Dễ</span>
+            <span class="meta-tag tag-cable">🔗 Cáp</span>
+            <span class="meta-tag tag-muscle">Lưng giữa · Rhomboids · Bicep</span>
+          </div>
+          <div class="exercise-note">💡 Giữ lưng thẳng, không ngả người quá nhiều. Kéo về bụng dưới, siết bả vai lại ở cuối động tác.</div>
+        </div>
+      </div>
+
+      <div class="exercise-card">
+        <div class="video-wrapper" id="w4">
+          <div class="video-thumb" onclick="loadVid('w4','Wqq43dKW1TU')">
+            <img src="https://img.youtube.com/vi/Wqq43dKW1TU/hqdefault.jpg" alt="Machine Shoulder Press" loading="lazy"/>
+            <div class="play-btn"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+            <span class="video-label">Nhấn để xem video</span>
+            <a class="yt-link" href="https://youtu.be/Wqq43dKW1TU" target="_blank" rel="noopener" onclick="event.stopPropagation()">YouTube ↗</a>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="exercise-name">Machine Shoulder Press <span class="sets-badge">2 × 8–12</span></div>
+          <div class="exercise-meta">
+            <span class="meta-tag tag-easy">🟢 Dễ</span>
+            <span class="meta-tag tag-machine">🖥️ Máy</span>
+            <span class="meta-tag tag-muscle">Vai giữa · Vai trước · Tricep</span>
+          </div>
+          <div class="exercise-note">💡 Điều chỉnh ghế sao cho tay cầm ngang vai. Đẩy thẳng lên, không khóa khuỷu hoàn toàn ở đỉnh.</div>
+        </div>
+      </div>
+
+      <div class="exercise-card">
+        <div class="video-wrapper" id="w5">
+          <div class="video-thumb" onclick="loadVid('w5','3VcKaXpzqRo')">
+            <img src="https://img.youtube.com/vi/3VcKaXpzqRo/hqdefault.jpg" alt="Dumbbell Lateral Raise" loading="lazy"/>
+            <div class="play-btn"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+            <span class="video-label">Nhấn để xem video</span>
+            <a class="yt-link" href="https://youtu.be/3VcKaXpzqRo" target="_blank" rel="noopener" onclick="event.stopPropagation()">YouTube ↗</a>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="exercise-name">Dumbbell Lateral Raise <span class="sets-badge">3 × 12–15</span></div>
+          <div class="exercise-meta">
+            <span class="meta-tag tag-medium">🟡 Trung bình</span>
+            <span class="meta-tag tag-dumbbell">🏋️ Tạ đơn</span>
+            <span class="meta-tag tag-muscle">Vai giữa (deltoid)</span>
+          </div>
+          <div class="exercise-note">⚠️ Dùng tạ nhẹ! Nâng cánh tay đến ngang vai, không cao hơn. Nghiêng tạ nhẹ — ngón cái hơi thấp hơn ngón út.</div>
+        </div>
+      </div>
+
+      <div class="exercise-card">
+        <div class="video-wrapper" id="w6">
+          <div class="video-thumb" onclick="loadVid('w6','ykJmrZ5v0Oo')">
+            <img src="https://img.youtube.com/vi/ykJmrZ5v0Oo/hqdefault.jpg" alt="Dumbbell Biceps Curl" loading="lazy"/>
+            <div class="play-btn"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+            <span class="video-label">Nhấn để xem video</span>
+            <a class="yt-link" href="https://youtu.be/ykJmrZ5v0Oo" target="_blank" rel="noopener" onclick="event.stopPropagation()">YouTube ↗</a>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="exercise-name">Dumbbell Biceps Curl <span class="sets-badge">2 × 10–15</span></div>
+          <div class="exercise-meta">
+            <span class="meta-tag tag-easy">🟢 Dễ</span>
+            <span class="meta-tag tag-dumbbell">🏋️ Tạ đơn</span>
+            <span class="meta-tag tag-muscle">Bicep · Cẳng tay</span>
+          </div>
+          <div class="exercise-note">💡 Giữ khuỷu tay cố định sát hông, không swing người. Siết bicep ở đỉnh, hạ chậm về vị trí ban đầu.</div>
+        </div>
+      </div>
+
+      <div class="exercise-card">
+        <div class="video-wrapper" id="w7">
+          <div class="video-thumb" onclick="loadVid('w7','kiuVA0gs3EI')">
+            <img src="https://img.youtube.com/vi/kiuVA0gs3EI/hqdefault.jpg" alt="Cable Triceps Pushdown" loading="lazy"/>
+            <div class="play-btn"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+            <span class="video-label">Nhấn để xem video</span>
+            <a class="yt-link" href="https://youtu.be/kiuVA0gs3EI" target="_blank" rel="noopener" onclick="event.stopPropagation()">YouTube ↗</a>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="exercise-name">Cable Triceps Pushdown <span class="sets-badge">2 × 10–15</span></div>
+          <div class="exercise-meta">
+            <span class="meta-tag tag-easy">🟢 Dễ</span>
+            <span class="meta-tag tag-cable">🔗 Cáp</span>
+            <span class="meta-tag tag-muscle">Tricep (3 đầu)</span>
+          </div>
+          <div class="exercise-note">💡 Giữ khuỷu cố định sát hông. Duỗi thẳng tay xuống, siết tricep ở điểm cuối. Không vung cánh tay.</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ======= LOWER A ======= -->
+  <div class="tab-content" id="lower-a">
+    <div class="exercise-grid">
+
+      <div class="exercise-card">
+        <div class="video-wrapper" id="w8">
+          <div class="video-thumb" onclick="loadVid('w8','IZxyjW7MPJQ')">
+            <img src="https://img.youtube.com/vi/IZxyjW7MPJQ/hqdefault.jpg" alt="Leg Press" loading="lazy"/>
+            <div class="play-btn"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+            <span class="video-label">Nhấn để xem video</span>
+            <a class="yt-link" href="https://youtu.be/IZxyjW7MPJQ" target="_blank" rel="noopener" onclick="event.stopPropagation()">YouTube ↗</a>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="exercise-name">Leg Press <span class="sets-badge green">3 × 8–12</span></div>
+          <div class="exercise-meta">
+            <span class="meta-tag tag-easy">🟢 Dễ</span>
+            <span class="meta-tag tag-machine">🖥️ Máy</span>
+            <span class="meta-tag tag-muscle">Quad · Glute · Hamstring</span>
+          </div>
+          <div class="exercise-note">💡 Đặt chân ngang vai, không khóa gối ở đỉnh. Hạ từ từ đến khi đùi gần song song sàn. Chân cao = glute nhiều hơn.</div>
+        </div>
+      </div>
+
+      <div class="exercise-card">
+        <div class="video-wrapper" id="w9">
+          <div class="video-thumb" onclick="loadVid('w9','hCDzSR6Vvik')">
+            <img src="https://img.youtube.com/vi/hCDzSR6Vvik/hqdefault.jpg" alt="Romanian Deadlift Dumbbell" loading="lazy"/>
+            <div class="play-btn"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+            <span class="video-label">Nhấn để xem video</span>
+            <a class="yt-link" href="https://youtu.be/hCDzSR6Vvik" target="_blank" rel="noopener" onclick="event.stopPropagation()">YouTube ↗</a>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="exercise-name">Romanian Deadlift (Dumbbell) <span class="sets-badge green">3 × 8–12</span></div>
+          <div class="exercise-meta">
+            <span class="meta-tag tag-medium">🟡 Trung bình</span>
+            <span class="meta-tag tag-dumbbell">🏋️ Tạ đơn</span>
+            <span class="meta-tag tag-muscle">Hamstring · Glute · Lưng dưới</span>
+          </div>
+          <div class="exercise-note">⚠️ <strong>Bắt đầu tạ nhẹ!</strong> Giữ lưng THẲNG toàn bộ. Đẩy hông ra sau, không cúi gập lưng. Cảm giác căng hamstring = đúng kỹ thuật.</div>
+        </div>
+      </div>
+
+      <div class="exercise-card">
+        <div class="video-wrapper" id="w10">
+          <div class="video-thumb" onclick="loadVid('w10','YyvSfVjQeL0')">
+            <img src="https://img.youtube.com/vi/YyvSfVjQeL0/hqdefault.jpg" alt="Leg Extension" loading="lazy"/>
+            <div class="play-btn"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+            <span class="video-label">Nhấn để xem video</span>
+            <a class="yt-link" href="https://youtu.be/YyvSfVjQeL0" target="_blank" rel="noopener" onclick="event.stopPropagation()">YouTube ↗</a>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="exercise-name">Leg Extension <span class="sets-badge green">3 × 10–15</span></div>
+          <div class="exercise-meta">
+            <span class="meta-tag tag-easy">🟢 Dễ</span>
+            <span class="meta-tag tag-machine">🖥️ Máy</span>
+            <span class="meta-tag tag-muscle">Quadriceps (4 đầu đùi)</span>
+          </div>
+          <div class="exercise-note">💡 Duỗi chân thẳng hoàn toàn, giữ 1 giây ở đỉnh, hạ chậm. Không dùng đà giật lên — chất lượng hơn trọng lượng.</div>
+        </div>
+      </div>
+
+      <div class="exercise-card">
+        <div class="video-wrapper" id="w11">
+          <div class="video-thumb" onclick="loadVid('w11','1Tq3QdYUuHs')">
+            <img src="https://img.youtube.com/vi/1Tq3QdYUuHs/hqdefault.jpg" alt="Seated Leg Curl" loading="lazy"/>
+            <div class="play-btn"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+            <span class="video-label">Nhấn để xem video</span>
+            <a class="yt-link" href="https://youtu.be/1Tq3QdYUuHs" target="_blank" rel="noopener" onclick="event.stopPropagation()">YouTube ↗</a>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="exercise-name">Seated Leg Curl <span class="sets-badge green">3 × 10–15</span></div>
+          <div class="exercise-meta">
+            <span class="meta-tag tag-easy">🟢 Dễ</span>
+            <span class="meta-tag tag-machine">🖥️ Máy</span>
+            <span class="meta-tag tag-muscle">Hamstring</span>
+          </div>
+          <div class="exercise-note">💡 Co chân về phía mông hết tầm, siết hamstring ở điểm cuối. Hạ chậm — pha hạ quan trọng không kém pha co.</div>
+        </div>
+      </div>
+
+      <div class="exercise-card">
+        <div class="video-wrapper" id="w12">
+          <div class="video-thumb" onclick="loadVid('w12','gwLzBJYoWlI')">
+            <img src="https://img.youtube.com/vi/gwLzBJYoWlI/hqdefault.jpg" alt="Calf Raise" loading="lazy"/>
+            <div class="play-btn"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+            <span class="video-label">Nhấn để xem video</span>
+            <a class="yt-link" href="https://youtu.be/gwLzBJYoWlI" target="_blank" rel="noopener" onclick="event.stopPropagation()">YouTube ↗</a>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="exercise-name">Standing/Seated Calf Raise <span class="sets-badge green">3 × 12–15</span></div>
+          <div class="exercise-meta">
+            <span class="meta-tag tag-easy">🟢 Dễ</span>
+            <span class="meta-tag tag-machine">🖥️ Máy / Tạ đơn</span>
+            <span class="meta-tag tag-muscle">Bắp chân (Gastrocnemius · Soleus)</span>
+          </div>
+          <div class="exercise-note">💡 Nhón gót cao nhất có thể, giữ 1 giây. Hạ xuống thấp hơn bề mặt để căng cơ tối đa. Tốc độ chậm — 2 giây lên, 2 giây xuống.</div>
+        </div>
+      </div>
+
+      <div class="exercise-card">
+        <div class="video-wrapper" id="w13">
+          <div class="video-thumb" onclick="loadVid('w13','ASdvN_XEl_c')">
+            <img src="https://img.youtube.com/vi/ASdvN_XEl_c/hqdefault.jpg" alt="Plank" loading="lazy"/>
+            <div class="play-btn"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+            <span class="video-label">Nhấn để xem video</span>
+            <a class="yt-link" href="https://youtu.be/ASdvN_XEl_c" target="_blank" rel="noopener" onclick="event.stopPropagation()">YouTube ↗</a>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="exercise-name">Plank <span class="sets-badge green">3 × 30–60 giây</span></div>
+          <div class="exercise-meta">
+            <span class="meta-tag tag-easy">🟢 Dễ</span>
+            <span class="meta-tag tag-bodyweight">🤸 Tự trọng</span>
+            <span class="meta-tag tag-muscle">Core · Bụng · Lưng dưới</span>
+          </div>
+          <div class="exercise-note">💡 Giữ thẳng từ đầu đến gót — không chổng mông lên, không võng lưng. Thở đều, siết bụng liên tục trong suốt set.</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ======= UPPER B ======= -->
+  <div class="tab-content" id="upper-b">
+    <div class="exercise-grid">
+
+      <div class="exercise-card">
+        <div class="video-wrapper" id="w14">
+          <div class="video-thumb" onclick="loadVid('w14','Iwe6AmxVf7o')">
+            <img src="https://img.youtube.com/vi/Iwe6AmxVf7o/hqdefault.jpg" alt="Incline Chest Press Machine" loading="lazy"/>
+            <div class="play-btn"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+            <span class="video-label">Nhấn để xem video</span>
+            <a class="yt-link" href="https://youtu.be/Iwe6AmxVf7o" target="_blank" rel="noopener" onclick="event.stopPropagation()">YouTube ↗</a>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="exercise-name">Incline Chest Press Machine <span class="sets-badge">3 × 8–12</span></div>
+          <div class="exercise-meta">
+            <span class="meta-tag tag-easy">🟢 Dễ</span>
+            <span class="meta-tag tag-machine">🖥️ Máy</span>
+            <span class="meta-tag tag-muscle">Ngực trên · Vai trước · Tricep</span>
+          </div>
+          <div class="exercise-note">💡 Biến thể nhấn mạnh ngực trên hơn Upper A. Đẩy theo hướng chéo lên, siết ngực ở điểm cuối. Khác với Chest Press thông thường.</div>
+        </div>
+      </div>
+
+      <div class="exercise-card">
+        <div class="video-wrapper" id="w15">
+          <div class="video-thumb" onclick="loadVid('w15','CAwf7n6Luuc')">
+            <img src="https://img.youtube.com/vi/CAwf7n6Luuc/hqdefault.jpg" alt="Lat Pulldown or Assisted Pull-up" loading="lazy"/>
+            <div class="play-btn"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+            <span class="video-label">Nhấn để xem video</span>
+            <a class="yt-link" href="https://youtu.be/CAwf7n6Luuc" target="_blank" rel="noopener" onclick="event.stopPropagation()">YouTube ↗</a>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="exercise-name">Lat Pulldown / Assisted Pull-up <span class="sets-badge">3 × 8–12</span></div>
+          <div class="exercise-meta">
+            <span class="meta-tag tag-easy">🟢 Dễ</span>
+            <span class="meta-tag tag-cable">🔗 Cáp / Máy</span>
+            <span class="meta-tag tag-muscle">Lưng rộng · Bicep</span>
+          </div>
+          <div class="exercise-note">💡 Nếu phòng gym có máy hỗ trợ pull-up (Assisted Pull-up Machine) thì hãy thử! Mục tiêu là tiến đến xà đơn không hỗ trợ sau 2–3 tháng.</div>
+        </div>
+      </div>
+
+      <div class="exercise-card">
+        <div class="video-wrapper" id="w16">
+          <div class="video-thumb" onclick="loadVid('w16','xQNrFHEMhI4')">
+            <img src="https://img.youtube.com/vi/xQNrFHEMhI4/hqdefault.jpg" alt="Chest-Supported Row" loading="lazy"/>
+            <div class="play-btn"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+            <span class="video-label">Nhấn để xem video</span>
+            <a class="yt-link" href="https://youtu.be/xQNrFHEMhI4" target="_blank" rel="noopener" onclick="event.stopPropagation()">YouTube ↗</a>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="exercise-name">Chest-Supported Row <span class="sets-badge">3 × 8–12</span></div>
+          <div class="exercise-meta">
+            <span class="meta-tag tag-easy">🟢 Dễ</span>
+            <span class="meta-tag tag-machine">🖥️ Máy / Tạ đơn</span>
+            <span class="meta-tag tag-muscle">Lưng giữa · Rhomboids · Rear Delt</span>
+          </div>
+          <div class="exercise-note">💡 Ngực tựa vào ghế loại bỏ hoàn toàn sức lưng dưới — an toàn hơn bent-over row. Kéo về hông, không về ngực. Siết bả vai ở cuối.</div>
+        </div>
+      </div>
+
+      <div class="exercise-card">
+        <div class="video-wrapper" id="w17">
+          <div class="video-thumb" onclick="loadVid('w17','Wqq43dKW1TU')">
+            <img src="https://img.youtube.com/vi/Wqq43dKW1TU/hqdefault.jpg" alt="Machine Shoulder Press" loading="lazy"/>
+            <div class="play-btn"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+            <span class="video-label">Nhấn để xem video</span>
+            <a class="yt-link" href="https://youtu.be/Wqq43dKW1TU" target="_blank" rel="noopener" onclick="event.stopPropagation()">YouTube ↗</a>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="exercise-name">Machine Shoulder Press <span class="sets-badge">2 × 8–12</span></div>
+          <div class="exercise-meta">
+            <span class="meta-tag tag-easy">🟢 Dễ</span>
+            <span class="meta-tag tag-machine">🖥️ Máy</span>
+            <span class="meta-tag tag-muscle">Vai · Tricep</span>
+          </div>
+          <div class="exercise-note">💡 Tương tự Upper A. Sau vài tuần bạn sẽ mạnh hơn — ghi chép lại trọng lượng và tăng dần mỗi tuần nếu cảm thấy nhẹ.</div>
+        </div>
+      </div>
+
+      <div class="exercise-card">
+        <div class="video-wrapper" id="w18">
+          <div class="video-thumb" onclick="loadVid('w18','PPDaGMRDhEo')">
+            <img src="https://img.youtube.com/vi/PPDaGMRDhEo/hqdefault.jpg" alt="Cable Lateral Raise" loading="lazy"/>
+            <div class="play-btn"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+            <span class="video-label">Nhấn để xem video</span>
+            <a class="yt-link" href="https://youtu.be/PPDaGMRDhEo" target="_blank" rel="noopener" onclick="event.stopPropagation()">YouTube ↗</a>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="exercise-name">Cable/Dumbbell Lateral Raise <span class="sets-badge">3 × 12–15</span></div>
+          <div class="exercise-meta">
+            <span class="meta-tag tag-medium">🟡 Trung bình</span>
+            <span class="meta-tag tag-cable">🔗 Cáp / Tạ đơn</span>
+            <span class="meta-tag tag-muscle">Vai giữa (deltoid)</span>
+          </div>
+          <div class="exercise-note">💡 Cable lateral raise căng vai tốt hơn dumbbell ở pha thấp. Đứng nghiêng sang bên máy, một tay cầm cáp, nâng ngang vai.</div>
+        </div>
+      </div>
+
+      <div class="exercise-card">
+        <div class="video-wrapper" id="w19">
+          <div class="video-thumb" onclick="loadVid('w19','zC3nLlEvin4')">
+            <img src="https://img.youtube.com/vi/zC3nLlEvin4/hqdefault.jpg" alt="Hammer Curl" loading="lazy"/>
+            <div class="play-btn"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+            <span class="video-label">Nhấn để xem video</span>
+            <a class="yt-link" href="https://youtu.be/zC3nLlEvin4" target="_blank" rel="noopener" onclick="event.stopPropagation()">YouTube ↗</a>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="exercise-name">Hammer Curl <span class="sets-badge">2 × 10–15</span></div>
+          <div class="exercise-meta">
+            <span class="meta-tag tag-easy">🟢 Dễ</span>
+            <span class="meta-tag tag-dumbbell">🏋️ Tạ đơn</span>
+            <span class="meta-tag tag-muscle">Bicep · Brachialis · Cẳng tay</span>
+          </div>
+          <div class="exercise-note">💡 Tay cầm dọc như cầm búa. Tập thêm brachialis — tạo chiều rộng cánh tay tốt hơn bicep curl thông thường. Bổ sung tốt sau Upper A.</div>
+        </div>
+      </div>
+
+      <div class="exercise-card">
+        <div class="video-wrapper" id="w20">
+          <div class="video-thumb" onclick="loadVid('w20','_gsUck-7M6Y')">
+            <img src="https://img.youtube.com/vi/_gsUck-7M6Y/hqdefault.jpg" alt="Overhead Cable Triceps Extension" loading="lazy"/>
+            <div class="play-btn"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+            <span class="video-label">Nhấn để xem video</span>
+            <a class="yt-link" href="https://youtu.be/_gsUck-7M6Y" target="_blank" rel="noopener" onclick="event.stopPropagation()">YouTube ↗</a>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="exercise-name">Overhead Cable Triceps Extension <span class="sets-badge">2 × 10–15</span></div>
+          <div class="exercise-meta">
+            <span class="meta-tag tag-medium">🟡 Trung bình</span>
+            <span class="meta-tag tag-cable">🔗 Cáp</span>
+            <span class="meta-tag tag-muscle">Tricep Long Head</span>
+          </div>
+          <div class="exercise-note">⚠️ Giữ khuỷu tay không xòe ra ngoài. Duỗi thẳng tay về phía trước, cảm giác căng tricep ở tư thế kéo dài tối đa.</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ======= LOWER B ======= -->
+  <div class="tab-content" id="lower-b">
+    <div class="exercise-grid">
+
+      <div class="exercise-card">
+        <div class="video-wrapper" id="w21">
+          <div class="video-thumb" onclick="loadVid('w21','MxsFDhcyFyE')">
+            <img src="https://img.youtube.com/vi/MxsFDhcyFyE/hqdefault.jpg" alt="Goblet Squat" loading="lazy"/>
+            <div class="play-btn"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+            <span class="video-label">Nhấn để xem video</span>
+            <a class="yt-link" href="https://youtu.be/MxsFDhcyFyE" target="_blank" rel="noopener" onclick="event.stopPropagation()">YouTube ↗</a>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="exercise-name">Goblet Squat <span class="sets-badge green">3 × 8–12</span></div>
+          <div class="exercise-meta">
+            <span class="meta-tag tag-easy">🟢 Dễ</span>
+            <span class="meta-tag tag-dumbbell">🏋️ Tạ đơn / Kettlebell</span>
+            <span class="meta-tag tag-muscle">Quad · Glute · Core</span>
+          </div>
+          <div class="exercise-note">💡 Bài squat TỐT NHẤT cho người mới! Cầm tạ trước ngực tự động giữ lưng thẳng. Ngồi giữa 2 chân, gối theo hướng ngón chân.</div>
+        </div>
+      </div>
+
+      <div class="exercise-card">
+        <div class="video-wrapper" id="w22">
+          <div class="video-thumb" onclick="loadVid('w22','xDmFkJxPzeM')">
+            <img src="https://img.youtube.com/vi/xDmFkJxPzeM/hqdefault.jpg" alt="Hip Thrust Machine" loading="lazy"/>
+            <div class="play-btn"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+            <span class="video-label">Nhấn để xem video</span>
+            <a class="yt-link" href="https://youtu.be/xDmFkJxPzeM" target="_blank" rel="noopener" onclick="event.stopPropagation()">YouTube ↗</a>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="exercise-name">Hip Thrust Machine <span class="sets-badge green">3 × 8–12</span></div>
+          <div class="exercise-meta">
+            <span class="meta-tag tag-easy">🟢 Dễ</span>
+            <span class="meta-tag tag-machine">🖥️ Máy</span>
+            <span class="meta-tag tag-muscle">Glute (mông) · Hamstring</span>
+          </div>
+          <div class="exercise-note">💡 Siết mông tối đa ở đỉnh, giữ 1 giây. Đẩy hông theo đường thẳng lên, không ưỡn lưng quá mức. Tốt nhất để phát triển cơ mông.</div>
+        </div>
+      </div>
+
+      <div class="exercise-card">
+        <div class="video-wrapper" id="w23">
+          <div class="video-thumb" onclick="loadVid('w23','IZxyjW7MPJQ')">
+            <img src="https://img.youtube.com/vi/IZxyjW7MPJQ/hqdefault.jpg" alt="Leg Press" loading="lazy"/>
+            <div class="play-btn"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+            <span class="video-label">Nhấn để xem video</span>
+            <a class="yt-link" href="https://youtu.be/IZxyjW7MPJQ" target="_blank" rel="noopener" onclick="event.stopPropagation()">YouTube ↗</a>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="exercise-name">Leg Press <span class="sets-badge green">3 × 10–12</span></div>
+          <div class="exercise-meta">
+            <span class="meta-tag tag-easy">🟢 Dễ</span>
+            <span class="meta-tag tag-machine">🖥️ Máy</span>
+            <span class="meta-tag tag-muscle">Quad · Glute · Hamstring</span>
+          </div>
+          <div class="exercise-note">💡 Sau Goblet Squat, Leg Press bổ sung thêm volume cho chân. Thử đặt chân cao hơn để nhấn mạnh glute và hamstring.</div>
+        </div>
+      </div>
+
+      <div class="exercise-card">
+        <div class="video-wrapper" id="w24">
+          <div class="video-thumb" onclick="loadVid('w24','1Tq3QdYUuHs')">
+            <img src="https://img.youtube.com/vi/1Tq3QdYUuHs/hqdefault.jpg" alt="Leg Curl" loading="lazy"/>
+            <div class="play-btn"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+            <span class="video-label">Nhấn để xem video</span>
+            <a class="yt-link" href="https://youtu.be/1Tq3QdYUuHs" target="_blank" rel="noopener" onclick="event.stopPropagation()">YouTube ↗</a>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="exercise-name">Leg Curl <span class="sets-badge green">3 × 10–15</span></div>
+          <div class="exercise-meta">
+            <span class="meta-tag tag-easy">🟢 Dễ</span>
+            <span class="meta-tag tag-machine">🖥️ Máy</span>
+            <span class="meta-tag tag-muscle">Hamstring</span>
+          </div>
+          <div class="exercise-note">💡 Có thể là lying hoặc seated leg curl — cả hai đều tốt. Kiểm soát kỹ pha hạ xuống, không để tạ rơi tự do.</div>
+        </div>
+      </div>
+
+      <div class="exercise-card">
+        <div class="video-wrapper" id="w25">
+          <div class="video-thumb" onclick="loadVid('w25','YyvSfVjQeL0')">
+            <img src="https://img.youtube.com/vi/YyvSfVjQeL0/hqdefault.jpg" alt="Leg Extension" loading="lazy"/>
+            <div class="play-btn"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+            <span class="video-label">Nhấn để xem video</span>
+            <a class="yt-link" href="https://youtu.be/YyvSfVjQeL0" target="_blank" rel="noopener" onclick="event.stopPropagation()">YouTube ↗</a>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="exercise-name">Leg Extension <span class="sets-badge green">2 × 10–15</span></div>
+          <div class="exercise-meta">
+            <span class="meta-tag tag-easy">🟢 Dễ</span>
+            <span class="meta-tag tag-machine">🖥️ Máy</span>
+            <span class="meta-tag tag-muscle">Quadriceps</span>
+          </div>
+          <div class="exercise-note">💡 Ít set hơn Lower A vì đã có Goblet Squat + Leg Press trước. Dùng làm finisher để "đốt" quad cuối buổi.</div>
+        </div>
+      </div>
+
+      <div class="exercise-card">
+        <div class="video-wrapper" id="w26">
+          <div class="video-thumb" onclick="loadVid('w26','gwLzBJYoWlI')">
+            <img src="https://img.youtube.com/vi/gwLzBJYoWlI/hqdefault.jpg" alt="Calf Raise" loading="lazy"/>
+            <div class="play-btn"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+            <span class="video-label">Nhấn để xem video</span>
+            <a class="yt-link" href="https://youtu.be/gwLzBJYoWlI" target="_blank" rel="noopener" onclick="event.stopPropagation()">YouTube ↗</a>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="exercise-name">Calf Raise <span class="sets-badge green">3 × 12–15</span></div>
+          <div class="exercise-meta">
+            <span class="meta-tag tag-easy">🟢 Dễ</span>
+            <span class="meta-tag tag-machine">🖥️ Máy / Tạ đơn</span>
+            <span class="meta-tag tag-muscle">Bắp chân</span>
+          </div>
+          <div class="exercise-note">💡 Lặp lại từ Lower A. Bắp chân cần nhiều volume để phát triển — tập đều đặn cả 2 buổi Lower là đúng hướng.</div>
+        </div>
+      </div>
+
+      <div class="exercise-card">
+        <div class="video-wrapper" id="w27">
+          <div class="video-thumb" onclick="loadVid('w27','AV5PmR5oFuI')">
+            <img src="https://img.youtube.com/vi/AV5PmR5oFuI/hqdefault.jpg" alt="Cable Crunch" loading="lazy"/>
+            <div class="play-btn"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+            <span class="video-label">Nhấn để xem video</span>
+            <a class="yt-link" href="https://youtu.be/AV5PmR5oFuI" target="_blank" rel="noopener" onclick="event.stopPropagation()">YouTube ↗</a>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="exercise-name">Cable Crunch <span class="sets-badge green">3 × 10–15</span></div>
+          <div class="exercise-meta">
+            <span class="meta-tag tag-medium">🟡 Trung bình</span>
+            <span class="meta-tag tag-cable">🔗 Cáp</span>
+            <span class="meta-tag tag-muscle">Rectus Abdominis (cơ bụng)</span>
+          </div>
+          <div class="exercise-note">⚠️ Quỳ gối, kéo cáp xuống bằng cách CO bụng (không kéo bằng tay hay cổ). Khuỷu hướng về đùi. Siết bụng ở điểm cuối.</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+</section>
+
+<footer>
+  <p>💪 Chúc bạn tập luyện hiệu quả! · Upper/Lower Split · Phù hợp người mới bắt đầu</p>
+  <p style="margin-top:8px;font-size:11px">Video từ YouTube · Nhấn thumbnail để xem · Có thể nhấn "YouTube ↗" để mở trên YouTube nếu video lỗi</p>
+</footer>
+
+<script>
+  function switchTab(id, color) {
+    document.querySelectorAll('.tab-content').forEach(el => el.classList.remove('active'));
+    document.querySelectorAll('.tab-btn').forEach(el => {
+      el.classList.remove('active-blue', 'active-green');
+    });
+    document.getElementById(id).classList.add('active');
+    document.getElementById('tab-' + id).classList.add('active-' + color);
+  }
+
+  function loadVid(wrapperId, videoId) {
+    const wrapper = document.getElementById(wrapperId);
+    const thumb = wrapper.querySelector('.video-thumb');
+    thumb.style.opacity = '0';
+    thumb.style.pointerEvents = 'none';
+    setTimeout(() => {
+      thumb.style.display = 'none';
+      const iframe = document.createElement('iframe');
+      iframe.src = 'https://www.youtube.com/embed/' + videoId + '?autoplay=1&rel=0&modestbranding=1';
+      iframe.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture';
+      iframe.allowFullscreen = true;
+      iframe.style.cssText = 'position:absolute;top:0;left:0;width:100%;height:100%;border:none;';
+      wrapper.appendChild(iframe);
+    }, 250);
+  }
+</script>
+</body>
+</html>
